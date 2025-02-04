@@ -1,0 +1,62 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+format = """[╔ $username[@]($bone bolde)$hostname $fill$time══╗](bold black)
+[╠═ $directory$git_branch$git_status $fill$cmd_duration═╝](bold black)
+[╚══ $status$character](bold black)"""
+
+palette = 'rtissera'
+
+[palettes.rtissera]
+bone = '#ECE2D0'
+
+[cmd_duration]
+format = ' [took $duration]($style) '
+show_milliseconds = true
+min_time = 0
+
+[fill]
+symbol = '═'
+
+[time]
+disabled = false
+format = ' 🕙 [$time]($style) '
+time_format = '%R'
+
+[username]
+format = '[$user]($style)'
+show_always = true
+
+[hostname]
+ssh_only = false
+format = '[$hostname]($style)'
+
+[directory]
+format = '[$path/]($style)'
+truncation_symbol = '…/'
+
+[git_branch]
+format = '[-\[[$branch]($style)\]](bold $bone)'
+
+[git_status]
+format = '[($all_status$ahead_behind)]($style)'
+ahead = '🚀'
+behind = '⏪'
+diverged = '🔀'
+renamed = '✍️'
+conflicted = '💥'
+up_to_date = '[✓](green)'
+untracked = '🥸'
+stashed = '📦'
+modified = '📝'
+staged = '[++\($count\)](green)'
+deleted = '🗑️'
+
+[character]
+success_symbol = '[>](blue bold)'
+error_symbol = '[>](red bold)'
+
+[status]
+format = '[\[$status\]]($style) '
+map_symbol = true
+disabled = false
