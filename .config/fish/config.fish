@@ -1,5 +1,7 @@
+set -g fish_greeting
+
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+	starship init fish | source
 end
 
 set -Ux STARSHIP_CONFIG ~/.config/starship/starship.toml
@@ -10,5 +12,3 @@ alias lock2 "/sgoinfre/goinfre/Perso/jmaia/Public/pimp_my_lock/pimp_my_lock.sh ~
 abbr gcl git clone
 abbr lla ls -lA
 abbr vim nvim
-
-starship init fish | source
