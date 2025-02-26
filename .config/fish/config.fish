@@ -31,7 +31,8 @@ abbr gcl git clone
 abbr gs git status
 abbr ga git add --all
 abbr gcm git commit -m \"
-abbr gp git push
+abbr gps git push
+abbr gpl git pull
 abbr lla ls -lA
 abbr ll ls -l
 abbr la ls -lA
