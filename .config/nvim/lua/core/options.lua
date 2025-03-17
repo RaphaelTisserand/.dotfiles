@@ -32,7 +32,6 @@ function options.setup()
 	vim.opt.softtabstop = 4
 	vim.opt.expandtab = false
 	vim.opt.hlsearch = true
-	vim.opt.guifont = "JetBrainsMonoNL Nerd Font:h12"
 	vim.cmd("autocmd BufRead,BufNewFile *.tpp set filetype=cpp")
 
 	end

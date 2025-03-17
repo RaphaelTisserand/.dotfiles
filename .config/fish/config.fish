@@ -30,7 +30,7 @@ alias lock2 "/sgoinfre/goinfre/Perso/jmaia/Public/pimp_my_lock/pimp_my_lock.sh ~
 abbr gcl git clone
 abbr gs git status
 abbr ga git add --all
-abbr gcm git commit -m \"
+abbr gcm git commit -m
 abbr gps git push
 abbr gpl git pull
 abbr lla ls -lA
