@@ -11,6 +11,6 @@ shell $SHELL
 
 
 # BEGIN_KITTY_THEME
-# Catppuccin-Frappe
+# Catppuccin-Latte
 include current-theme.conf
 # END_KITTY_THEME
