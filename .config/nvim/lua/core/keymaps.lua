@@ -1,11 +1,11 @@
 local keymaps = {}
 
 function keymaps.utils()
-	vim.keymap.set("n", "<leader>nh", "<CR>nohl<CR>", { desc = "Clear search highlights" })
-	vim.keymap.set("n", "<leader>ex", "<CR>Ex<CR>", { desc = "File [EX]plorer" })
-	vim.keymap.set("n", "<leader>h", "<CR>Stdheader<CR>", { desc = "42 [H]eader" })
-	vim.keymap.set("n", "<leader>qa", "<CR>qa<CR>", { desc = "Exit nvim" })
-	vim.keymap.set("n", "<leader>nt", "<CR>tabnew<CR>", { desc = "[N]ew [T]ab" })
+	vim.keymap.set("n", "<leader>nh", "<CMD>nohl<CR>", { desc = "Clear search highlights" })
+	vim.keymap.set("n", "<leader>ex", "<CMD>Ex<CR>", { desc = "File [EX]plorer" })
+	vim.keymap.set("n", "<leader>h", "<CMD>Stdheader<CR>", { desc = "42 [H]eader" })
+	vim.keymap.set("n", "<leader>qa", "<CMD>qa<CR>", { desc = "Exit nvim" })
+	vim.keymap.set("n", "<leader>nt", "<CMD>tabnew<CR>", { desc = "[N]ew [T]ab" })
 end
 
 -- Keybinds to make split navigation easier.
