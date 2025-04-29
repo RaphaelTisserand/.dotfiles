@@ -11,7 +11,7 @@ return {
 				light = "latte",
 				dark = "mocha",
 			},
-			transparent_background = true,
+			transparent_background = false,
 			show_end_of_buffer = true,
 			term_colors = false,
 			dim_inactive = {
@@ -43,8 +43,10 @@ return {
 				cmp = true,
 				gitsigns = true,
 				nvimtree = true,
+				neotree = true,
 				treesitter = true,
-				notify = false,
+				notify = true,
+				telescope = true,
 				mini = {
 					enabled = true,
 					indentscope_color = "",

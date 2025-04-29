@@ -11,17 +11,9 @@ local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 end
 vim.opt.rtp:prepend(lazypath)
 
--- local lazy = {}
--- function lazy.setup()
--- 	require("lazy").setup("plugins")
--- end
---
--- return lazy
-
 require("lazy").setup({
     spec = {
         { import = "plugins"},
         { import = "plugins/lsp"}
     },
-    checker = { enabled = true },
 })

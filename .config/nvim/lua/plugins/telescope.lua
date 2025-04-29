@@ -12,7 +12,7 @@ return {
 		local telescope = require('telescope')
 		local actions = require('telescope.actions')
 
-		telescope.setup{ 
+		telescope.setup{
 			defaults = {
 				prompte_prefix = "🔍 ",
 				selection_caret = "➜ ",

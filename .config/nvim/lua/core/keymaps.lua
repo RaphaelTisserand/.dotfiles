@@ -6,6 +6,7 @@ vim.keymap.set("n", "<leader>q", "<CMD>q<CR>", { desc = "[Q]uit" })
 vim.keymap.set("n", "<leader>qa", "<CMD>qa<CR>", { desc = "[Q]uit [A]ll" })
 vim.keymap.set("n", "<leader>nt", "<CMD>tabnew<CR>", { desc = "[N]ew [T]ab" })
 vim.keymap.set("n", "<leader>w", "<CMD>w<CR>", { desc = "[W]rite" })
+vim.keymap.set("n", "<leader>wa", "<CMD>wa<CR>", { desc = "[W]rite [A]ll" })
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows

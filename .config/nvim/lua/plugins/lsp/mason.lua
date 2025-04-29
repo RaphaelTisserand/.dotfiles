@@ -25,7 +25,7 @@ return {
 			},
 			ui = {
 				check_outdated_packages_on_open = true,
-				border = "none",
+				border = "rounded",
 				backdrop = 60,
 				width = 0.8,
 				height = 0.9,
