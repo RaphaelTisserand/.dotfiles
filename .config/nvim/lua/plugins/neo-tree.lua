@@ -13,4 +13,10 @@ return {
 	opts = {
 		-- fill any relevant options here
 	},
+	config = function()
+		local neoTree = require('telescope')
+
+		neoTree.setup({
+		})
+	end,
 }
