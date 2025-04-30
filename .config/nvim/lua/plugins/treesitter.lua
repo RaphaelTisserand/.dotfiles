@@ -25,6 +25,7 @@ return {
 				"rust",
 				"yaml",
 				"toml",
+				"typescript",
 			},
 			ignore_install = {},
 			highlight = { enable = true },

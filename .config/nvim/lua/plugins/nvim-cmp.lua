@@ -1,5 +1,5 @@
 return {
-	'hrsh7th/nvim-cmp',
+	--[[ 'hrsh7th/nvim-cmp',
 	dependencies = {
 		'neovim/nvim-lspconfig',
 		'hrsh7th/cmp-path',
@@ -38,6 +38,5 @@ return {
 				{ name = 'path' },
 			}),
 		})
-	end
+	end ]]
 }
-
