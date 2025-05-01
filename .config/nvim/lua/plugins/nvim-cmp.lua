@@ -1,5 +1,5 @@
 return {
-	--[[ 'hrsh7th/nvim-cmp',
+	'hrsh7th/nvim-cmp',
 	dependencies = {
 		'neovim/nvim-lspconfig',
 		'hrsh7th/cmp-path',
@@ -9,6 +9,10 @@ return {
 		'L3MON4D3/LuaSnip',
 		'saadparwaiz1/cmp_luasnip',
 	},
+	--[[ cond = function()
+		local ft = vim.bo.filetype
+		return ft ~= "javascript" and ft ~= "typescript"
+	end, ]]
 
 	config = function()
 		local cmp = require('cmp')
@@ -21,14 +25,14 @@ return {
 				end,
 			},
 			window = {
-				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
+				--[[ completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(), ]]
 			},
 			mapping = cmp.mapping.preset.insert({
-				['<Right>'] = cmp.mapping.confirm({ select = true }),
-				['<Left>'] = cmp.mapping.abort(),
-				['<Down>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-				['<Up>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+				['<Tab>'] = cmp.mapping.confirm({ select = true }),
+				['<S-Tab>'] = cmp.mapping.abort(),
+				['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+				['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
 				['<C-Space>'] = cmp.mapping.complete(),
 			}),
 			sources = cmp.config.sources({
@@ -38,5 +42,5 @@ return {
 				{ name = 'path' },
 			}),
 		})
-	end ]]
+	end
 }
