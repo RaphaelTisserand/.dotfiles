@@ -3,11 +3,11 @@ return {
 
 	config = function()
 		local lspconfig = require("lspconfig")
-		local cmp_lsp = require("cmp_nvim_lsp")
+		--[[ local cmp_lsp = require("cmp_nvim_lsp")
 		local capabilities = cmp_lsp.default_capabilities(
 			vim.lsp.protocol.make_client_capabilities()
 		)
-		capabilities.offsetEncoding = { "utf-16" }
+		capabilities.offsetEncoding = { "utf-16" } ]]
 
 		lspconfig["clangd"].setup({
 			cmd = { "clangd", "--enable-config" },

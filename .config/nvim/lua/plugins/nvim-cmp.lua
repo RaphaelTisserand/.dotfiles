@@ -1,5 +1,5 @@
 return {
-	'hrsh7th/nvim-cmp',
+	--[[ 'hrsh7th/nvim-cmp',
 	dependencies = {
 		'neovim/nvim-lspconfig',
 		'hrsh7th/cmp-path',
@@ -9,10 +9,6 @@ return {
 		'L3MON4D3/LuaSnip',
 		'saadparwaiz1/cmp_luasnip',
 	},
-	--[[ cond = function()
-		local ft = vim.bo.filetype
-		return ft ~= "javascript" and ft ~= "typescript"
-	end, ]]
 
 	config = function()
 		local cmp = require('cmp')
@@ -25,8 +21,8 @@ return {
 				end,
 			},
 			window = {
-				--[[ completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(), ]]
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
 			},
 			mapping = cmp.mapping.preset.insert({
 				['<Tab>'] = cmp.mapping.confirm({ select = true }),
@@ -42,5 +38,5 @@ return {
 				{ name = 'path' },
 			}),
 		})
-	end
+	end ]]
 }
