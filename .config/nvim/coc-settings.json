@@ -1,0 +1,42 @@
+{
+	"suggest.noselect": false,
+	"suggest.enablePreselect": true,
+	"suggest.snippetIndicator": "↲",
+	"suggest.minTriggerInputLength": 1,
+	"suggest.timeout": 500,
+	"suggest.autoTrigger": "always",
+	"diagnostic.virtualText": true,
+	"diagnostic.displayByAle": false,
+	"diagnostic.messageTarget": "float",
+	"coc.preferences.formatOnSaveFiletypes": [
+		"javascript",
+		"typescript",
+		"json",
+		"python",
+		"lua",
+		"yaml",
+		"html",
+		"css"
+	],
+	"coc.preferences.diagnostic.enable": true,
+	"coc.preferences.hoverTarget": "float",
+	"coc.preferences.useQuickfixForLocations": true,
+	"codeLens.enable": true,
+	"python.pythonPath": "python3",
+	"tsserver.enable": true,
+	"eslint.enable": true,
+	"eslint.autoFixOnSave": true,
+	"eslint.filetypes": [
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact"
+	],
+	"snippets.ultisnips.enable": true,
+	"snippets.ultisnips.pythonPrompt": false,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"prettier.useTabs": true,
+	"prettier.tabWidth": 4
+}
