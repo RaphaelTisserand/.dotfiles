@@ -1,3 +1,2 @@
 .config/fish/fish_variables
-*.json
-.*.json
+.config/nvim/lazy-lock.json
