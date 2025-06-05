@@ -5,6 +5,7 @@ vim.keymap.set("n", "<leader>h", "<CMD>Stdheader<CR>", { desc = "42 [H]eader" })
 vim.keymap.set("n", "<leader>q", "<CMD>q<CR>", { desc = "[Q]uit" })
 vim.keymap.set("n", "<leader>qa", "<CMD>qa<CR>", { desc = "[Q]uit [A]ll" })
 vim.keymap.set("n", "<leader>nt", "<CMD>tabnew<CR>", { desc = "[N]ew [T]ab" })
+vim.keymap.set("n", "<leader>qt", "<CMD>closetab<CR>", { desc = "[Q]uit [T]ab" })
 vim.keymap.set("n", "<leader>w", "<CMD>w<CR>", { desc = "[W]rite" })
 vim.keymap.set("n", "<leader>wa", "<CMD>wa<CR>", { desc = "[W]rite [A]ll" })
 
