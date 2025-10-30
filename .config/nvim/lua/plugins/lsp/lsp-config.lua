@@ -1,56 +1,82 @@
 return {
-	"neovim/nvim-lspconfig",
+  --[[ "neovim/nvim-lspconfig",
+  dependencies = {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "hrsh7th/cmp-nvim-lsp", -- optionnel
+  },
 
-	config = function()
-		local lspconfig = require("lspconfig")
-		--[[ local cmp_lsp = require("cmp_nvim_lsp")
-		local capabilities = cmp_lsp.default_capabilities(
-			vim.lsp.protocol.make_client_capabilities()
-		)
-		capabilities.offsetEncoding = { "utf-16" } ]]
+  config = function()
+    local mason_lspconfig = require("mason-lspconfig")
+    local configs = vim.lsp.configs
+    local util = require("lspconfig.util")
 
-		lspconfig["clangd"].setup({
-			cmd = { "clangd", "--enable-config" },
-			filetypes = { "c", "cpp" },
-			root_dir = function(fname)
-				return require("lspconfig").util.root_pattern(".clangd", "compile_commands.json", ".git")(fname)
-					or vim.fn.getcwd()
-			end,
-			capabilities = capabilities,
-			on_attach = function(client, bufnr)
-				local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-				local opts = { noremap = true, silent = true }
+    -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-				buf_set_keymap("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", opts)
-				buf_set_keymap("n", "gr", "<Cmd>lua vim.lsp.buf.references()<CR>", opts)
-				buf_set_keymap("n", "gi", "<Cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-				buf_set_keymap("n", "K", "<Cmd>lua vim.lsp.buf.hover()<CR>", opts)
-				-- buf_set_keymap("n", "<C-k>", "<Cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-				buf_set_keymap("n", "<space>rn", "<Cmd>lua vim.lsp.buf.rename()<CR>", opts)
-				buf_set_keymap("n", "<space>ca", "<Cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-			end,
-			settings = {
-				clangd = {
-					semanticHighlighting = true,
-					completion = {
-						placeholder = true
-					},
-				},
-			},
-		})
+    local function on_attach(_, bufnr)
+      local opts = { noremap = true, silent = true, buffer = bufnr }
+      local keymap = vim.keymap.set
+      keymap("n", "gd", vim.lsp.buf.definition, opts)
+      keymap("n", "gr", vim.lsp.buf.references, opts)
+      keymap("n", "gi", vim.lsp.buf.implementation, opts)
+      keymap("n", "K", vim.lsp.buf.hover, opts)
+      keymap("n", "<space>rn", vim.lsp.buf.rename, opts)
+      keymap("n", "<space>ca", vim.lsp.buf.code_action, opts)
+      keymap("n", "[d", vim.diagnostic.goto_prev, opts)
+      keymap("n", "]d", vim.diagnostic.goto_next, opts)
+    end
 
-		lspconfig["lua_ls"].setup({
-			capabilities = capabilities,
-			settings = {
-				Lua = {
-					diagnostics = {
-						globals = { "vim" },
-					},
-					completion = {
-						callSnippet = "Replace",
-					}
-				}
-			}
-		})
-	end
+    ----------------------------------------------------------------
+    -- Déclaration des serveurs
+    ----------------------------------------------------------------
+    local servers = {
+      clangd = {
+        cmd = { "clangd", "--enable-config" },
+        filetypes = { "c", "cpp" },
+        root_dir = function(fname)
+          return util.root_pattern(".clangd", "compile_commands.json", ".git")(fname)
+            or vim.fn.getcwd()
+        end,
+        on_attach = on_attach,
+        -- capabilities = capabilities,
+        settings = {
+          clangd = {
+            semanticHighlighting = true,
+            completion = { placeholder = true },
+          },
+        },
+      },
+
+      lua_ls = {
+        on_attach = on_attach,
+        -- capabilities = capabilities,
+        settings = {
+          Lua = {
+            diagnostics = { globals = { "vim" } },
+            completion = { callSnippet = "Replace" },
+            workspace = { checkThirdParty = false },
+          },
+        },
+      },
+    }
+
+    ----------------------------------------------------------------
+    -- Mason + nouvelle API
+    ----------------------------------------------------------------
+    mason_lspconfig.setup({
+      ensure_installed = vim.tbl_keys(servers),
+      automatic_installation = true,
+    })
+
+    -- Pour chaque serveur installé, démarre avec la nouvelle API
+    mason_lspconfig.on_server_ready(function(server_name)
+      local config = servers[server_name]
+      if config then
+        if not configs[server_name] then
+          configs[server_name] = config
+        end
+        vim.lsp.start(config)
+      end
+    end)
+  end, ]]
 }

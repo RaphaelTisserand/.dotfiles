@@ -18,9 +18,15 @@
 		"lua",
 		"yaml",
 		"html",
-		"css"
+		"css",
+		"c",
+		"cpp"
 	],
 	"coc.preferences.diagnostic.enable": true,
+
+	"clangd.arguments": ["--header-insertion=never", "--inlay-hints=false"],
+
+	"signature.enable": false,
 
 	"coc.preferences.hoverTarget": "float",
 	"coc.preferences.useQuickfixForLocations": true,
