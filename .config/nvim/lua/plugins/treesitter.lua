@@ -2,7 +2,7 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	dependencies = { "windwp/nvim-ts-autotag" },
 	config = function ()
-		local ts = require('nvim-treesitter.configs')
+		local ts = require('nvim-treesitter')
 
 		ts.setup({
 			additional_vim_regex_highlighting = false,
